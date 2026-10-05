@@ -1,0 +1,594 @@
+<!DOCTYPE html>
+
+<html lang="en">
+
+<head>
+
+<meta charset="UTF-8">
+
+<meta name="viewport"
+   content="width=device-width, initial-scale=1.0">
+
+<title>
+    {% block title %}
+    AI Smart Study Planner
+    {% endblock %}
+</title>
+
+<link rel="stylesheet"
+      href="{{ url_for('static', filename='css/style.css') }}">
+
+</head>
+
+<body>
+
+<!-- ================================
+     NAVIGATION BAR
+================================ -->
+
+<nav class="main-navbar">
+
+<div class="navbar-container">
+
+```
+<!-- BRAND -->
+
+<a href="/" class="planner-brand">
+
+    <div class="brand-icon">
+        🧠
+    </div>
+
+    <div class="brand-text">
+
+        <div class="brand-title">
+            AI Smart Study
+        </div>
+
+        <div class="brand-subtitle">
+            PLANNER
+        </div>
+
+    </div>
+
+</a>
+
+
+<!-- NAVIGATION -->
+
+<div class="navigation-links">
+
+    <a href="/"
+       class="navigation-link">
+        🏠 Home
+    </a>
+
+
+    {% if session.get("student_id") %}
+
+    <a href="{{ url_for('dashboard') }}"
+       class="navigation-link">
+        📊 Dashboard
+    </a>
+
+
+    <a href="{{ url_for('subjects') }}"
+       class="navigation-link">
+        📚 Subjects
+    </a>
+
+
+    <a href="{{ url_for('exams') }}"
+       class="navigation-link">
+        📝 Exams
+    </a>
+
+
+    <a href="{{ url_for('progress_page') }}"
+       class="navigation-link">
+        📈 Progress
+    </a>
+
+
+    <a href="{{ url_for('study_plan') }}"
+       class="navigation-link">
+        🤖 Study Plan
+    </a>
+
+
+    <!-- NEW RESOURCES LINK -->
+
+    <a href="{{ url_for('resources') }}"
+       class="navigation-link">
+        📚 Resources
+    </a>
+
+
+    <a href="{{ url_for('logout') }}"
+       class="logout-button">
+        Logout
+    </a>
+
+
+    {% else %}
+
+
+    <a href="{{ url_for('login') }}"
+       class="navigation-link">
+        🔐 Login
+    </a>
+
+
+    <a href="{{ url_for('register') }}"
+       class="start-button">
+        Get Started →
+    </a>
+
+
+    {% endif %}
+
+</div>
+```
+
+</div>
+
+</nav>
+
+<!-- ================================
+     MAIN CONTENT
+================================ -->
+
+<main class="main-content">
+
+{% block content %}
+{% endblock %}
+
+</main>
+
+<!-- ================================
+     FOOTER
+================================ -->
+
+<footer class="main-footer">
+
+<div class="footer-container">
+
+```
+<div class="footer-brand">
+
+    <strong>
+        🧠 AI Smart Study Planner
+    </strong>
+
+    <p>
+        Plan smarter. Learn better. Achieve more.
+    </p>
+
+</div>
+
+
+<div class="footer-links">
+
+    <span>
+        📚 Smart Learning
+    </span>
+
+    <span>
+        🤖 AI Planning
+    </span>
+
+    <span>
+        📈 Progress Tracking
+    </span>
+
+</div>
+
+
+<div class="footer-copyright">
+
+    © 2026 AI Smart Study Planner
+
+</div>
+```
+
+</div>
+
+</footer>
+
+<style>
+
+/* =========================================
+   NAVIGATION BAR
+========================================= */
+
+.main-navbar {
+
+    width: 100%;
+
+    background: white;
+
+    border-bottom: 1px solid #e2e8f0;
+
+    position: sticky;
+
+    top: 0;
+
+    z-index: 1000;
+
+}
+
+
+.navbar-container {
+
+    max-width: 1250px;
+
+    margin: auto;
+
+    padding: 13px 25px;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: space-between;
+
+    gap: 20px;
+
+}
+
+
+/* =========================================
+   BRAND
+========================================= */
+
+.planner-brand {
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 10px;
+
+    text-decoration: none;
+
+    color: #172033;
+
+    flex-shrink: 0;
+
+}
+
+
+.brand-icon {
+
+    width: 43px;
+
+    height: 43px;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    border-radius: 12px;
+
+    background: #eef2ff;
+
+    font-size: 22px;
+
+}
+
+
+.brand-title {
+
+    font-size: 15px;
+
+    font-weight: 800;
+
+    line-height: 1.1;
+
+}
+
+
+.brand-subtitle {
+
+    margin-top: 3px;
+
+    color: #4f46e5;
+
+    font-size: 9px;
+
+    font-weight: 800;
+
+    letter-spacing: 2px;
+
+}
+
+
+/* =========================================
+   NAVIGATION LINKS
+========================================= */
+
+.navigation-links {
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: flex-end;
+
+    gap: 6px;
+
+    flex-wrap: wrap;
+
+}
+
+
+.navigation-link {
+
+    padding: 8px 10px;
+
+    border-radius: 8px;
+
+    color: #475569;
+
+    font-size: 12px;
+
+    font-weight: 700;
+
+    text-decoration: none;
+
+    transition:
+        background 0.2s ease,
+        color 0.2s ease;
+
+}
+
+
+.navigation-link:hover {
+
+    color: #4f46e5;
+
+    background: #eef2ff;
+
+}
+
+
+/* =========================================
+   LOGOUT BUTTON
+========================================= */
+
+.logout-button {
+
+    padding: 9px 15px;
+
+    border-radius: 9px;
+
+    background: #fee2e2;
+
+    color: #b91c1c;
+
+    font-size: 12px;
+
+    font-weight: 800;
+
+    text-decoration: none;
+
+    transition:
+        background 0.2s ease,
+        transform 0.2s ease;
+
+}
+
+
+.logout-button:hover {
+
+    background: #fecaca;
+
+    transform: translateY(-1px);
+
+}
+
+
+/* =========================================
+   GET STARTED BUTTON
+========================================= */
+
+.start-button {
+
+    padding: 9px 16px;
+
+    border-radius: 9px;
+
+    background: #4f46e5;
+
+    color: white;
+
+    font-size: 12px;
+
+    font-weight: 800;
+
+    text-decoration: none;
+
+    transition:
+        background 0.2s ease,
+        transform 0.2s ease;
+
+}
+
+
+.start-button:hover {
+
+    background: #4338ca;
+
+    transform: translateY(-1px);
+
+}
+
+
+/* =========================================
+   MAIN CONTENT
+========================================= */
+
+.main-content {
+
+    min-height: calc(100vh - 160px);
+
+}
+
+
+/* =========================================
+   FOOTER
+========================================= */
+
+.main-footer {
+
+    margin-top: 40px;
+
+    background: #172033;
+
+    color: white;
+
+}
+
+
+.footer-container {
+
+    max-width: 1250px;
+
+    margin: auto;
+
+    padding: 25px;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: space-between;
+
+    gap: 25px;
+
+}
+
+
+.footer-brand strong {
+
+    font-size: 14px;
+
+}
+
+
+.footer-brand p {
+
+    margin: 5px 0 0;
+
+    color: #94a3b8;
+
+    font-size: 11px;
+
+}
+
+
+.footer-links {
+
+    display: flex;
+
+    gap: 18px;
+
+    color: #cbd5e1;
+
+    font-size: 11px;
+
+}
+
+
+.footer-copyright {
+
+    color: #94a3b8;
+
+    font-size: 10px;
+
+    white-space: nowrap;
+
+}
+
+
+/* =========================================
+   RESPONSIVE DESIGN
+========================================= */
+
+@media (max-width: 950px) {
+
+    .navbar-container {
+
+        flex-direction: column;
+
+        align-items: center;
+
+    }
+
+    .navigation-links {
+
+        justify-content: center;
+
+    }
+
+    .footer-container {
+
+        flex-direction: column;
+
+        text-align: center;
+
+    }
+
+}
+
+
+@media (max-width: 600px) {
+
+    .navbar-container {
+
+        padding: 12px 15px;
+
+    }
+
+    .navigation-links {
+
+        gap: 4px;
+
+    }
+
+    .navigation-link {
+
+        padding: 7px 8px;
+
+        font-size: 11px;
+
+    }
+
+    .logout-button,
+    .start-button {
+
+        padding: 8px 11px;
+
+        font-size: 11px;
+
+    }
+
+    .footer-links {
+
+        flex-direction: column;
+
+        gap: 7px;
+
+        align-items: center;
+
+    }
+
+}
+
+</style>
+
+</body>
+
+</html>

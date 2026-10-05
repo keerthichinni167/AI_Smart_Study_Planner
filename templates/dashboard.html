@@ -1,0 +1,1240 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<div class="dashboard-page">
+
+    <!-- =====================================================
+         HEADER
+         ===================================================== -->
+
+    <div class="dashboard-header">
+
+        <div class="dashboard-welcome">
+
+            <div class="section-label">
+                AI SMART STUDY PLANNER
+            </div>
+
+            <h1>
+                Welcome back, {{ student_name }} 👋
+            </h1>
+
+            <p>
+                Your personalized learning dashboard powered by AI.
+            </p>
+
+        </div>
+
+        <div class="dashboard-badge">
+            🎓 B.Tech • CSM
+        </div>
+
+    </div>
+
+
+    <!-- =====================================================
+         STAT CARDS
+         ===================================================== -->
+
+    <div class="stats-grid">
+
+        <div class="stat-card">
+
+            <div class="stat-icon">
+                📚
+            </div>
+
+            <div class="stat-content">
+
+                <h3>
+                    {{ total_subjects }}
+                </h3>
+
+                <p>
+                    Total Subjects
+                </p>
+
+            </div>
+
+        </div>
+
+
+        <div class="stat-card">
+
+            <div class="stat-icon">
+                📅
+            </div>
+
+            <div class="stat-content">
+
+                <h3>
+                    {{ upcoming_exams }}
+                </h3>
+
+                <p>
+                    Upcoming Exams
+                </p>
+
+            </div>
+
+        </div>
+
+
+        <div class="stat-card">
+
+            <div class="stat-icon">
+                📝
+            </div>
+
+            <div class="stat-content">
+
+                <h3>
+                    {{ total_sessions }}
+                </h3>
+
+                <p>
+                    Pending Sessions
+                </p>
+
+            </div>
+
+        </div>
+
+
+        <div class="stat-card">
+
+            <div class="stat-icon">
+                ⏱️
+            </div>
+
+            <div class="stat-content">
+
+                <h3>
+                    {{ total_hours }}
+                </h3>
+
+                <p>
+                    Hours Studied
+                </p>
+
+            </div>
+
+        </div>
+
+    </div>
+
+
+    <!-- =====================================================
+         LEARNING PROGRESS
+         ===================================================== -->
+
+    <div class="dashboard-card progress-card">
+
+        <div class="card-header-row">
+
+            <div>
+
+                <div class="section-label">
+                    PERFORMANCE
+                </div>
+
+                <h2>
+                    📈 Learning Progress
+                </h2>
+
+                <p>
+                    Your overall learning progress based on completed topics.
+                </p>
+
+            </div>
+
+            <div class="progress-number">
+                {{ learning_progress }}%
+            </div>
+
+        </div>
+
+
+        <div class="progress-track">
+
+            <div
+                class="progress-fill"
+                style="width: {{ learning_progress }}%;">
+            </div>
+
+        </div>
+
+
+        <div class="progress-bottom">
+
+            <span>
+                ✅ {{ completed_sessions }} completed study sessions
+            </span>
+
+            <a href="{{ url_for('progress_page') }}">
+                View Progress →
+            </a>
+
+        </div>
+
+    </div>
+
+
+    <!-- =====================================================
+         TODAY'S STUDY REMINDER
+         ===================================================== -->
+
+    <div class="dashboard-card reminder-card">
+
+        <div class="reminder-header">
+
+            <div>
+
+                <div class="section-label">
+                    SMART REMINDER
+                </div>
+
+                <h2>
+                    🔔 Today's Study Reminder
+                </h2>
+
+                <p>
+                    Stay consistent with your personalized study schedule.
+                </p>
+
+            </div>
+
+            <div class="reminder-icon">
+                🔔
+            </div>
+
+        </div>
+
+
+        <!-- REMINDER MESSAGE -->
+
+        <div class="reminder-message">
+
+            {% if today_total_sessions == 0 %}
+
+                <div class="reminder-status">
+
+                    <span class="reminder-status-icon">
+                        📚
+                    </span>
+
+                    <div>
+
+                        <strong>
+                            No study sessions today
+                        </strong>
+
+                        <p>
+                            You don't have any study sessions scheduled
+                            for today.
+                        </p>
+
+                    </div>
+
+                </div>
+
+            {% elif today_pending_sessions == 0 %}
+
+                <div class="reminder-status completed-reminder">
+
+                    <span class="reminder-status-icon">
+                        🎉
+                    </span>
+
+                    <div>
+
+                        <strong>
+                            Excellent! All sessions completed.
+                        </strong>
+
+                        <p>
+                            You completed all your study sessions for today.
+                        </p>
+
+                    </div>
+
+                </div>
+
+            {% else %}
+
+                <div class="reminder-status">
+
+                    <span class="reminder-status-icon">
+                        ⏰
+                    </span>
+
+                    <div>
+
+                        <strong>
+                            {{ reminder_message }}
+                        </strong>
+
+                        <p>
+                            Stay consistent and complete your remaining
+                            sessions.
+                        </p>
+
+                    </div>
+
+                </div>
+
+            {% endif %}
+
+        </div>
+
+
+        <!-- TODAY STATISTICS -->
+
+        <div class="reminder-stats">
+
+            <div class="reminder-stat">
+
+                <span class="reminder-stat-icon">
+                    📅
+                </span>
+
+                <div>
+
+                    <strong>
+                        {{ today_total_sessions }}
+                    </strong>
+
+                    <small>
+                        Today's Sessions
+                    </small>
+
+                </div>
+
+            </div>
+
+
+            <div class="reminder-stat">
+
+                <span class="reminder-stat-icon">
+                    ✅
+                </span>
+
+                <div>
+
+                    <strong>
+                        {{ today_completed_sessions }}
+                    </strong>
+
+                    <small>
+                        Completed
+                    </small>
+
+                </div>
+
+            </div>
+
+
+            <div class="reminder-stat">
+
+                <span class="reminder-stat-icon">
+                    ⏳
+                </span>
+
+                <div>
+
+                    <strong>
+                        {{ today_pending_sessions }}
+                    </strong>
+
+                    <small>
+                        Pending
+                    </small>
+
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <!-- NEXT STUDY SESSION -->
+
+        {% if next_session %}
+
+        <div class="next-session">
+
+            <div class="next-session-title">
+                ⏰ Next Study Session
+            </div>
+
+            <div class="next-session-content">
+
+                <div>
+
+                    <strong>
+                        {{ next_session.subject_name }}
+                    </strong>
+
+                    <p>
+                        {{ next_session.topic }}
+                    </p>
+
+                </div>
+
+                <div class="next-session-time">
+
+                    {{ next_session.start_time_display }}
+
+                    <span>
+                        →
+                    </span>
+
+                    {{ next_session.end_time_display }}
+
+                </div>
+
+            </div>
+
+        </div>
+
+        {% endif %}
+
+
+        <!-- STUDY PLAN BUTTON -->
+
+        <div class="reminder-action">
+
+            <a
+                href="{{ url_for('study_plan') }}"
+                class="primary-btn">
+
+                🤖 View AI Study Plan
+
+            </a>
+
+        </div>
+
+    </div>
+
+
+    <!-- =====================================================
+         QUICK ACTIONS
+         ===================================================== -->
+
+    <div class="dashboard-card">
+
+        <div class="section-label">
+            QUICK ACCESS
+        </div>
+
+        <h2>
+            ⚡ Quick Actions
+        </h2>
+
+        <p>
+            Manage your study information and generate your personalized plan.
+        </p>
+
+
+        <div class="quick-actions">
+
+            <a
+                href="{{ url_for('subjects') }}"
+                class="quick-action">
+
+                <span class="quick-action-icon">
+                    📚
+                </span>
+
+                <div>
+
+                    <strong>
+                        Manage Subjects
+                    </strong>
+
+                    <small>
+                        Add or update your subjects
+                    </small>
+
+                </div>
+
+                <span class="quick-arrow">
+                    →
+                </span>
+
+            </a>
+
+
+            <a
+                href="{{ url_for('exams') }}"
+                class="quick-action">
+
+                <span class="quick-action-icon">
+                    📅
+                </span>
+
+                <div>
+
+                    <strong>
+                        Manage Exams
+                    </strong>
+
+                    <small>
+                        Manage your examination dates
+                    </small>
+
+                </div>
+
+                <span class="quick-arrow">
+                    →
+                </span>
+
+            </a>
+
+
+            <a
+                href="{{ url_for('study_plan') }}"
+                class="quick-action ai-action">
+
+                <span class="quick-action-icon">
+                    🤖
+                </span>
+
+                <div>
+
+                    <strong>
+                        Generate AI Study Plan
+                    </strong>
+
+                    <small>
+                        Create your personalized schedule
+                    </small>
+
+                </div>
+
+                <span class="quick-arrow">
+                    →
+                </span>
+
+            </a>
+
+        </div>
+
+    </div>
+
+
+    <!-- =====================================================
+         UPCOMING EXAMS
+         ===================================================== -->
+
+    <div class="dashboard-card">
+
+        <div class="card-header-row">
+
+            <div>
+
+                <div class="section-label">
+                    EXAM TRACKER
+                </div>
+
+                <h2>
+                    📅 Upcoming Exam Schedule
+                </h2>
+
+                <p>
+                    Keep track of your upcoming examinations.
+                </p>
+
+            </div>
+
+            <a
+                href="{{ url_for('exams') }}"
+                class="text-link">
+
+                Manage Exams →
+
+            </a>
+
+        </div>
+
+
+        {% if upcoming_exam_list %}
+
+        <div class="exam-list">
+
+            {% for exam in upcoming_exam_list %}
+
+            <div class="exam-item">
+
+                <div class="exam-icon">
+                    📘
+                </div>
+
+                <div class="exam-info">
+
+                    <strong>
+                        {{ exam.subject_name }}
+                    </strong>
+
+                    <span>
+                        Exam Date:
+                        {{ exam.exam_date }}
+                    </span>
+
+                </div>
+
+                <div class="exam-arrow">
+                    →
+                </div>
+
+            </div>
+
+            {% endfor %}
+
+        </div>
+
+        {% else %}
+
+        <div class="empty-state">
+
+            <div class="empty-state-icon">
+                📅
+            </div>
+
+            <h3>
+                No upcoming exams
+            </h3>
+
+            <p>
+                Add your exam dates to receive AI-based study priorities.
+            </p>
+
+            <a
+                href="{{ url_for('exams') }}"
+                class="primary-btn">
+
+                Add Exam
+
+            </a>
+
+        </div>
+
+        {% endif %}
+
+    </div>
+
+
+    <!-- =====================================================
+         AI PRIORITY
+         ===================================================== -->
+
+    <div class="dashboard-card ai-priority-card">
+
+        <div class="card-header-row">
+
+            <div>
+
+                <div class="section-label">
+                    ARTIFICIAL INTELLIGENCE
+                </div>
+
+                <h2>
+                    🤖 AI Subject Priority
+                </h2>
+
+                <p>
+                    AI calculates study priority using exam date, marks,
+                    difficulty and remaining topics.
+                </p>
+
+            </div>
+
+            <div class="ai-status">
+                ● AI ACTIVE
+            </div>
+
+        </div>
+
+
+        {% if priority_list %}
+
+        <div class="priority-list">
+
+            {% for subject in priority_list %}
+
+            <div class="priority-item">
+
+                <div class="priority-subject">
+
+                    <strong>
+                        {{ subject.subject_name }}
+                    </strong>
+
+                    <span
+                        class="{% if subject.priority_level == 'HIGH' %}priority-high{% elif subject.priority_level == 'MEDIUM' %}priority-medium{% else %}priority-low{% endif %}">
+
+                        {{ subject.priority_level }}
+
+                    </span>
+
+                </div>
+
+
+                <div class="priority-score">
+
+                    <div class="priority-track">
+
+                        <div
+                            class="priority-fill {% if subject.priority_level == 'HIGH' %}priority-fill-high{% elif subject.priority_level == 'MEDIUM' %}priority-fill-medium{% else %}priority-fill-low{% endif %}"
+                            style="width: {{ subject.priority_score }}%;">
+                        </div>
+
+                    </div>
+
+                    <strong>
+                        {{ subject.priority_score }}
+                    </strong>
+
+                </div>
+
+            </div>
+
+            {% endfor %}
+
+        </div>
+
+        {% else %}
+
+        <div class="empty-state">
+
+            <div class="empty-state-icon">
+                🤖
+            </div>
+
+            <h3>
+                No AI priority data yet
+            </h3>
+
+            <p>
+                Add subjects and exam dates to calculate AI priority.
+            </p>
+
+        </div>
+
+        {% endif %}
+
+    </div>
+
+
+    <!-- =====================================================
+         STUDY SUMMARY
+         ===================================================== -->
+
+    <div class="dashboard-card">
+
+        <div class="card-header-row">
+
+            <div>
+
+                <div class="section-label">
+                    LEARNING ANALYTICS
+                </div>
+
+                <h2>
+                    📊 Study Summary
+                </h2>
+
+                <p>
+                    A quick summary of your current learning activity.
+                </p>
+
+            </div>
+
+            <a
+                href="{{ url_for('progress_page') }}"
+                class="text-link">
+
+                View Full Progress →
+
+            </a>
+
+        </div>
+
+
+        <div class="summary-grid">
+
+            <div class="summary-item">
+
+                <span>
+                    📚
+                </span>
+
+                <strong>
+                    {{ total_subjects }}
+                </strong>
+
+                <small>
+                    Total Subjects
+                </small>
+
+            </div>
+
+
+            <div class="summary-item">
+
+                <span>
+                    ⏱️
+                </span>
+
+                <strong>
+                    {{ total_hours }}
+                </strong>
+
+                <small>
+                    Hours Studied
+                </small>
+
+            </div>
+
+
+            <div class="summary-item">
+
+                <span>
+                    ✅
+                </span>
+
+                <strong>
+                    {{ completed_sessions }}
+                </strong>
+
+                <small>
+                    Completed Sessions
+                </small>
+
+            </div>
+
+
+            <div class="summary-item">
+
+                <span>
+                    📈
+                </span>
+
+                <strong>
+                    {{ learning_progress }}%
+                </strong>
+
+                <small>
+                    Learning Progress
+                </small>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+
+
+<!-- =====================================================
+     AUTOMATIC STUDY REMINDER
+     ===================================================== -->
+
+{% if next_session %}
+
+<script>
+
+    setTimeout(function () {
+
+        const reminder = document.createElement("div");
+
+        reminder.className = "study-notification";
+
+        reminder.innerHTML = `
+
+            <div class="notification-icon">
+                🔔
+            </div>
+
+            <h3>
+                Study Reminder
+            </h3>
+
+            <p class="notification-main">
+                Your next study session is:
+            </p>
+
+            <p class="notification-subject">
+                📚
+                <strong>
+                    {{ next_session.subject_name }}
+                </strong>
+            </p>
+
+            <p class="notification-topic">
+                📝
+                {{ next_session.topic }}
+            </p>
+
+            <p class="notification-time">
+                ⏰
+                {{ next_session.start_time_display }}
+                →
+                {{ next_session.end_time_display }}
+            </p>
+
+            <button
+                onclick="this.parentElement.remove()"
+                class="notification-button">
+
+                Got it ✓
+
+            </button>
+
+        `;
+
+        document.body.appendChild(reminder);
+
+    }, 2000);
+
+</script>
+
+{% endif %}
+
+
+<!-- =====================================================
+     DASHBOARD STYLE
+     ===================================================== -->
+
+<style>
+
+    .dashboard-page {
+        animation: dashboardFadeIn 0.5s ease;
+    }
+
+
+    @keyframes dashboardFadeIn {
+
+        from {
+            opacity: 0;
+            transform: translateY(8px);
+        }
+
+        to {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+    }
+
+
+    .dashboard-welcome h1 {
+        margin-bottom: 8px;
+    }
+
+
+    .dashboard-badge {
+        padding: 12px 18px;
+        border-radius: 14px;
+        font-weight: 700;
+        background: rgba(79, 70, 229, 0.08);
+        color: #4f46e5;
+        border: 1px solid rgba(79, 70, 229, 0.15);
+    }
+
+
+    .stat-card {
+        transition:
+            transform 0.25s ease,
+            box-shadow 0.25s ease;
+    }
+
+
+    .stat-card:hover {
+        transform: translateY(-5px);
+        box-shadow:
+            0 15px 35px rgba(15, 23, 42, 0.10);
+    }
+
+
+    .stat-icon {
+        transition: transform 0.25s ease;
+    }
+
+
+    .stat-card:hover .stat-icon {
+        transform: scale(1.08);
+    }
+
+
+    .progress-card {
+        overflow: hidden;
+    }
+
+
+    .progress-number {
+        font-size: 32px;
+        font-weight: 800;
+        color: #4f46e5;
+    }
+
+
+    .ai-status {
+        padding: 8px 13px;
+        border-radius: 20px;
+        background: rgba(34, 197, 94, 0.10);
+        color: #16a34a;
+        font-size: 12px;
+        font-weight: 800;
+        letter-spacing: 0.5px;
+    }
+
+
+    .priority-item {
+        transition:
+            transform 0.2s ease,
+            box-shadow 0.2s ease;
+    }
+
+
+    .priority-item:hover {
+        transform: translateX(4px);
+        box-shadow:
+            0 8px 22px rgba(15, 23, 42, 0.07);
+    }
+
+
+    .priority-high {
+        color: #dc2626 !important;
+        background: rgba(220, 38, 38, 0.10) !important;
+    }
+
+
+    .priority-medium {
+        color: #d97706 !important;
+        background: rgba(217, 119, 6, 0.10) !important;
+    }
+
+
+    .priority-low {
+        color: #16a34a !important;
+        background: rgba(22, 163, 74, 0.10) !important;
+    }
+
+
+    .priority-fill-high {
+        background: #ef4444 !important;
+    }
+
+
+    .priority-fill-medium {
+        background: #f59e0b !important;
+    }
+
+
+    .priority-fill-low {
+        background: #22c55e !important;
+    }
+
+
+    .quick-action {
+        transition:
+            transform 0.25s ease,
+            box-shadow 0.25s ease;
+    }
+
+
+    .quick-action:hover {
+        transform: translateY(-4px);
+        box-shadow:
+            0 12px 28px rgba(15, 23, 42, 0.09);
+    }
+
+
+    .quick-arrow,
+    .exam-arrow {
+        margin-left: auto;
+        font-size: 20px;
+        color: #64748b;
+        transition: transform 0.2s ease;
+    }
+
+
+    .quick-action:hover .quick-arrow,
+    .exam-item:hover .exam-arrow {
+        transform: translateX(4px);
+    }
+
+
+    .exam-item {
+        transition:
+            transform 0.2s ease,
+            box-shadow 0.2s ease;
+    }
+
+
+    .exam-item:hover {
+        transform: translateX(4px);
+        box-shadow:
+            0 8px 20px rgba(15, 23, 42, 0.06);
+    }
+
+
+    /* =====================================================
+       STUDY NOTIFICATION
+       ===================================================== */
+
+    .study-notification {
+
+        position: fixed;
+        top: 25px;
+        right: 25px;
+        width: 350px;
+        max-width: calc(100vw - 40px);
+
+        background: white;
+
+        border-radius: 18px;
+
+        padding: 22px;
+
+        box-shadow:
+            0 18px 45px rgba(15, 23, 42, 0.20);
+
+        border-left: 6px solid #4f46e5;
+
+        z-index: 9999;
+
+        animation: reminderSlideIn 0.4s ease;
+
+    }
+
+
+    .notification-icon {
+        font-size: 28px;
+        margin-bottom: 8px;
+    }
+
+
+    .study-notification h3 {
+        margin: 0 0 8px 0;
+        color: #172033;
+        font-size: 20px;
+    }
+
+
+    .notification-main {
+        margin: 0 0 8px 0;
+        color: #4b5563;
+        font-weight: 600;
+    }
+
+
+    .notification-subject {
+        margin: 6px 0;
+        color: #172033;
+    }
+
+
+    .notification-topic {
+        margin: 6px 0;
+        color: #6b7280;
+        line-height: 1.5;
+    }
+
+
+    .notification-time {
+        margin: 10px 0 18px 0;
+        color: #4f46e5;
+        font-weight: bold;
+    }
+
+
+    .notification-button {
+
+        width: 100%;
+
+        border: none;
+
+        padding: 11px;
+
+        border-radius: 10px;
+
+        background: #4f46e5;
+
+        color: white;
+
+        font-weight: bold;
+
+        cursor: pointer;
+
+        font-size: 14px;
+
+        transition:
+            background 0.2s ease,
+            transform 0.2s ease;
+
+    }
+
+
+    .notification-button:hover {
+        background: #4338ca;
+        transform: translateY(-1px);
+    }
+
+
+    @keyframes reminderSlideIn {
+
+        from {
+            opacity: 0;
+            transform: translateX(40px);
+        }
+
+        to {
+            opacity: 1;
+            transform: translateX(0);
+        }
+
+    }
+
+
+    /* =====================================================
+       MOBILE
+       ===================================================== */
+
+    @media (max-width: 768px) {
+
+        .dashboard-header {
+            gap: 15px;
+        }
+
+
+        .dashboard-badge {
+            width: fit-content;
+        }
+
+
+        .progress-number {
+            font-size: 26px;
+        }
+
+
+        .card-header-row {
+            gap: 15px;
+        }
+
+
+        .study-notification {
+            top: 15px;
+            right: 15px;
+            width: calc(100vw - 30px);
+        }
+
+    }
+
+</style>
+
+
+{% endblock %}

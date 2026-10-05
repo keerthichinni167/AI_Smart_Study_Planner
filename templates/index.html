@@ -1,0 +1,205 @@
+{% extends "base.html" %}
+
+{% block title %}
+AI Smart Study Planner
+{% endblock %}
+
+{% block content %}
+
+<section class="hero">
+
+    <div class="hero-content">
+
+        <div class="hero-badge">
+            ✨ AI-Powered Learning Assistant
+        </div>
+
+        <h1>
+            Study Smarter.<br>
+            <span class="gradient-text">
+                Achieve More.
+            </span>
+        </h1>
+
+        <p class="hero-description">
+            AI Smart Study Planner analyzes your subjects, marks,
+            difficulty levels, exam dates and progress to create
+            a personalized study plan designed around you.
+        </p>
+
+        <div class="hero-buttons">
+
+            <a href="{{ url_for('register') }}"
+               class="primary-btn">
+                Start Planning →
+            </a>
+
+            <a href="{{ url_for('login') }}"
+               class="secondary-btn">
+                Login
+            </a>
+
+        </div>
+
+    </div>
+
+
+    <div class="hero-visual">
+
+        <div class="ai-card">
+
+            <div class="ai-card-header">
+
+                <div class="ai-brain">
+                    🧠
+                </div>
+
+                <div>
+                    <h3>AI Study Analysis</h3>
+                    <span>● System Ready</span>
+                </div>
+
+            </div>
+
+
+            <div class="study-item">
+
+                <div class="study-info">
+                    <strong>DBMS</strong>
+                    <span>Exam approaching</span>
+                </div>
+
+                <div class="priority">
+                    HIGH
+                </div>
+
+            </div>
+
+
+            <div class="study-item">
+
+                <div class="study-info">
+                    <strong>Probability</strong>
+                    <span>Difficulty: Medium</span>
+                </div>
+
+                <div class="priority">
+                    MEDIUM
+                </div>
+
+            </div>
+
+
+            <div class="study-item">
+
+                <div class="study-info">
+                    <strong>Java OOP</strong>
+                    <span>Good progress</span>
+                </div>
+
+                <div class="priority">
+                    NORMAL
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<section class="features">
+
+    <div class="section-label">
+        SMART FEATURES
+    </div>
+
+    <h2>
+        Everything You Need to Study Better
+    </h2>
+
+    <p class="section-subtitle">
+        One intelligent platform for planning, learning and tracking.
+    </p>
+
+
+    <div class="feature-grid">
+
+        <div class="feature-card">
+
+            <div class="feature-icon">
+                📅
+            </div>
+
+            <h3>
+                Smart Timetable
+            </h3>
+
+            <p>
+                Generate personalized study schedules
+                based on your available study time.
+            </p>
+
+        </div>
+
+
+        <div class="feature-card">
+
+            <div class="feature-icon">
+                🤖
+            </div>
+
+            <h3>
+                AI Priority
+            </h3>
+
+            <p>
+                Identify which subjects require
+                more attention using intelligent analysis.
+            </p>
+
+        </div>
+
+
+        <div class="feature-card">
+
+            <div class="feature-icon">
+                📊
+            </div>
+
+            <h3>
+                Progress Tracking
+            </h3>
+
+            <p>
+                Monitor study hours, completed topics
+                and overall learning progress.
+            </p>
+
+        </div>
+
+
+        <div class="feature-card">
+
+            <div class="feature-icon">
+                🔔
+            </div>
+
+            <h3>
+                Smart Reminders
+            </h3>
+
+            <p>
+                Stay informed about upcoming exams
+                and planned study sessions.
+            </p>
+
+        </div>
+
+    </div>
+
+</section>
+
+{% endblock %}

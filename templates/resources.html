@@ -1,0 +1,313 @@
+{% extends "base.html" %}
+
+{% block title %}Project Resources{% endblock %}
+
+{% block content %}
+
+<style>
+
+    .resources-container {
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 30px 20px;
+    }
+
+    .resources-header {
+        text-align: center;
+        margin-bottom: 40px;
+    }
+
+    .resources-header h1 {
+        font-size: 38px;
+        margin-bottom: 10px;
+    }
+
+    .resources-header p {
+        color: #64748b;
+        font-size: 17px;
+    }
+
+    .resource-grid {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 25px;
+        margin-bottom: 35px;
+    }
+
+    .resource-card {
+        background: white;
+        border-radius: 18px;
+        padding: 30px;
+        text-align: center;
+        box-shadow: 0 8px 25px rgba(0, 0, 0, 0.08);
+        transition: 0.3s ease;
+    }
+
+    .resource-card:hover {
+        transform: translateY(-6px);
+    }
+
+    .resource-icon {
+        font-size: 50px;
+        margin-bottom: 15px;
+    }
+
+    .resource-card h2 {
+        margin-bottom: 12px;
+        font-size: 24px;
+    }
+
+    .resource-card p {
+        color: #64748b;
+        line-height: 1.6;
+        min-height: 80px;
+    }
+
+    .resource-button {
+        display: inline-block;
+        margin-top: 15px;
+        padding: 12px 24px;
+        border-radius: 10px;
+        background: #2563eb;
+        color: white;
+        text-decoration: none;
+        font-weight: 600;
+    }
+
+    .resource-button:hover {
+        background: #1d4ed8;
+    }
+
+    .project-overview {
+        background: white;
+        border-radius: 18px;
+        padding: 30px;
+        box-shadow: 0 8px 25px rgba(0, 0, 0, 0.08);
+    }
+
+    .project-overview h2 {
+        margin-bottom: 25px;
+    }
+
+    .overview-grid {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 18px;
+    }
+
+    .overview-item {
+        background: #f8fafc;
+        padding: 20px;
+        border-radius: 12px;
+    }
+
+    .overview-item strong {
+        display: block;
+        margin-bottom: 7px;
+        font-size: 16px;
+    }
+
+    .overview-item span {
+        color: #64748b;
+        line-height: 1.5;
+    }
+
+    @media (max-width: 800px) {
+
+        .resource-grid {
+            grid-template-columns: 1fr;
+        }
+
+        .overview-grid {
+            grid-template-columns: 1fr;
+        }
+
+    }
+
+</style>
+
+
+<div class="resources-container">
+
+
+    <!-- Header -->
+
+    <div class="resources-header">
+
+        <h1>📚 Project Resources</h1>
+
+        <p>
+            Documentation, presentation and viva preparation
+            for the AI Smart Study Planner.
+        </p>
+
+    </div>
+
+
+    <!-- Resource Cards -->
+
+    <div class="resource-grid">
+
+
+        <!-- Documentation -->
+
+        <div class="resource-card">
+
+            <div class="resource-icon">
+                📄
+            </div>
+
+            <h2>Documentation</h2>
+
+            <p>
+                Complete project documentation including
+                objectives, modules, architecture, database,
+                AI logic and future scope.
+            </p>
+
+            <a href="{{ url_for('documentation') }}"
+               class="resource-button">
+                View Documentation
+            </a>
+
+        </div>
+
+
+        <!-- PPT -->
+
+        <div class="resource-card">
+
+            <div class="resource-icon">
+                📊
+            </div>
+
+            <h2>Project PPT</h2>
+
+            <p>
+                Presentation material covering the project
+                introduction, methodology, technologies,
+                implementation and results.
+            </p>
+
+            <a href="{{ url_for('project_ppt') }}"
+               class="resource-button">
+                View PPT
+            </a>
+
+        </div>
+
+
+        <!-- Viva -->
+
+        <div class="resource-card">
+
+            <div class="resource-icon">
+                🎤
+            </div>
+
+            <h2>Viva Questions</h2>
+
+            <p>
+                Important viva questions and answers related
+                to Flask, MySQL, AI, Machine Learning and
+                project implementation.
+            </p>
+
+            <a href="{{ url_for('viva') }}"
+                class="resource-button">
+                Practice Viva
+            </a>
+               
+                
+            
+
+        </div>
+
+    </div>
+
+
+    <!-- Project Overview -->
+
+    <div class="project-overview">
+
+        <h2>🤖 AI Smart Study Planner</h2>
+
+        <div class="overview-grid">
+
+
+            <div class="overview-item">
+
+                <strong>🎯 Project Goal</strong>
+
+                <span>
+                    Generate personalized study plans based
+                    on student performance and exam priorities.
+                </span>
+
+            </div>
+
+
+            <div class="overview-item">
+
+                <strong>🧠 AI Component</strong>
+
+                <span>
+                    AI-based priority calculation and
+                    intelligent study-plan generation.
+                </span>
+
+            </div>
+
+
+            <div class="overview-item">
+
+                <strong>💻 Backend</strong>
+
+                <span>
+                    Python and Flask
+                </span>
+
+            </div>
+
+
+            <div class="overview-item">
+
+                <strong>🗄️ Database</strong>
+
+                <span>
+                    MySQL
+                </span>
+
+            </div>
+
+
+            <div class="overview-item">
+
+                <strong>📊 Data Processing</strong>
+
+                <span>
+                    Pandas, NumPy and Scikit-learn
+                </span>
+
+            </div>
+
+
+            <div class="overview-item">
+
+                <strong>🎨 Frontend</strong>
+
+                <span>
+                    HTML, CSS and JavaScript
+                </span>
+
+            </div>
+
+
+        </div>
+
+    </div>
+
+
+</div>
+
+{% endblock %}

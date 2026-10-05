@@ -1,0 +1,748 @@
+{% extends "base.html" %}
+
+{% block title %}Project PPT{% endblock %}
+
+{% block content %}
+
+<style>
+
+    .ppt-container {
+        max-width: 1100px;
+        margin: 0 auto;
+        padding: 30px 20px;
+    }
+
+    .ppt-header {
+        text-align: center;
+        margin-bottom: 35px;
+    }
+
+    .ppt-header h1 {
+        font-size: 38px;
+        margin-bottom: 10px;
+    }
+
+    .ppt-header p {
+        color: #64748b;
+        font-size: 17px;
+    }
+
+    .slide {
+        background: white;
+        border-radius: 18px;
+        padding: 40px;
+        margin-bottom: 25px;
+        min-height: 300px;
+        box-shadow: 0 8px 25px rgba(0, 0, 0, 0.08);
+    }
+
+    .slide-number {
+        color: #2563eb;
+        font-weight: bold;
+        font-size: 15px;
+        margin-bottom: 12px;
+    }
+
+    .slide h2 {
+        font-size: 30px;
+        margin-bottom: 20px;
+    }
+
+    .slide p {
+        color: #475569;
+        font-size: 17px;
+        line-height: 1.7;
+    }
+
+    .slide ul {
+        color: #475569;
+        font-size: 17px;
+        line-height: 2;
+        padding-left: 25px;
+    }
+
+    .technology-grid {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 18px;
+        margin-top: 25px;
+    }
+
+    .technology-card {
+        background: #f8fafc;
+        padding: 20px;
+        border-radius: 12px;
+        text-align: center;
+    }
+
+    .technology-card .icon {
+        font-size: 35px;
+        margin-bottom: 10px;
+    }
+
+    .technology-card strong {
+        display: block;
+        font-size: 17px;
+    }
+
+    .architecture {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 12px;
+        margin-top: 25px;
+    }
+
+    .architecture-box {
+        background: #eff6ff;
+        border: 1px solid #bfdbfe;
+        padding: 15px 30px;
+        border-radius: 10px;
+        font-weight: 600;
+        text-align: center;
+        width: 70%;
+    }
+
+    .arrow {
+        font-size: 25px;
+    }
+
+    .highlight {
+        background: #eff6ff;
+        border-left: 5px solid #2563eb;
+        padding: 20px;
+        border-radius: 10px;
+        margin-top: 20px;
+    }
+
+    .highlight strong {
+        display: block;
+        margin-bottom: 8px;
+    }
+
+    .conclusion {
+        background: #1e293b;
+        color: white;
+    }
+
+    .conclusion p {
+        color: #e2e8f0;
+    }
+
+    @media (max-width: 800px) {
+
+        .technology-grid {
+            grid-template-columns: 1fr;
+        }
+
+        .slide {
+            padding: 25px;
+        }
+
+        .architecture-box {
+            width: 90%;
+        }
+
+    }
+
+</style>
+
+
+<div class="ppt-container">
+
+
+    <!-- Header -->
+
+    <div class="ppt-header">
+
+        <h1>📊 AI Smart Study Planner</h1>
+
+        <p>
+            Project Presentation
+        </p>
+
+    </div>
+
+
+    <!-- Slide 1 -->
+
+    <div class="slide">
+
+        <div class="slide-number">
+            SLIDE 01
+        </div>
+
+        <h2>🎓 Title Slide</h2>
+
+        <p>
+            <strong>AI Smart Study Planner</strong>
+        </p>
+
+        <p>
+            An intelligent web-based application that helps
+            students organize their studies and generate
+            personalized study plans.
+        </p>
+
+        <div class="highlight">
+
+            <strong>Presented By</strong>
+
+            Keerthi Bommakanti<br>
+            B.Tech – CSM<br>
+            MRECW
+
+        </div>
+
+    </div>
+
+
+    <!-- Slide 2 -->
+
+    <div class="slide">
+
+        <div class="slide-number">
+            SLIDE 02
+        </div>
+
+        <h2>📌 Introduction</h2>
+
+        <p>
+            Students often face difficulty managing subjects,
+            exam dates, marks and study time.
+        </p>
+
+        <p>
+            The AI Smart Study Planner provides an intelligent
+            solution that analyzes academic information and
+            generates a personalized study schedule.
+        </p>
+
+    </div>
+
+
+    <!-- Slide 3 -->
+
+    <div class="slide">
+
+        <div class="slide-number">
+            SLIDE 03
+        </div>
+
+        <h2>❗ Problem Statement</h2>
+
+        <ul>
+
+            <li>
+                Difficulty in managing multiple subjects.
+            </li>
+
+            <li>
+                Lack of personalized study schedules.
+            </li>
+
+            <li>
+                Difficulty identifying high-priority subjects.
+            </li>
+
+            <li>
+                Manual planning consumes time.
+            </li>
+
+            <li>
+                Students may not allocate enough time
+                to difficult subjects.
+            </li>
+
+        </ul>
+
+    </div>
+
+
+    <!-- Slide 4 -->
+
+    <div class="slide">
+
+        <div class="slide-number">
+            SLIDE 04
+        </div>
+
+        <h2>🎯 Objectives</h2>
+
+        <ul>
+
+            <li>
+                Analyze student academic performance.
+            </li>
+
+            <li>
+                Calculate subject priority.
+            </li>
+
+            <li>
+                Consider upcoming examination dates.
+            </li>
+
+            <li>
+                Generate personalized study plans.
+            </li>
+
+            <li>
+                Track student study progress.
+            </li>
+
+            <li>
+                Provide a simple web-based interface.
+            </li>
+
+        </ul>
+
+    </div>
+
+
+    <!-- Slide 5 -->
+
+    <div class="slide">
+
+        <div class="slide-number">
+            SLIDE 05
+        </div>
+
+        <h2>💻 Technologies Used</h2>
+
+        <div class="technology-grid">
+
+
+            <div class="technology-card">
+
+                <div class="icon">
+                    🐍
+                </div>
+
+                <strong>Python</strong>
+
+                Backend programming
+
+            </div>
+
+
+            <div class="technology-card">
+
+                <div class="icon">
+                    🌐
+                </div>
+
+                <strong>Flask</strong>
+
+                Web framework
+
+            </div>
+
+
+            <div class="technology-card">
+
+                <div class="icon">
+                    🗄️
+                </div>
+
+                <strong>MySQL</strong>
+
+                Database
+
+            </div>
+
+
+            <div class="technology-card">
+
+                <div class="icon">
+                    🤖
+                </div>
+
+                <strong>Scikit-learn</strong>
+
+                AI / ML processing
+
+            </div>
+
+
+            <div class="technology-card">
+
+                <div class="icon">
+                    📊
+                </div>
+
+                <strong>Pandas</strong>
+
+                Data processing
+
+            </div>
+
+
+            <div class="technology-card">
+
+                <div class="icon">
+                    🎨
+                </div>
+
+                <strong>HTML / CSS / JS</strong>
+
+                Frontend
+
+            </div>
+
+
+        </div>
+
+    </div>
+
+
+    <!-- Slide 6 -->
+
+    <div class="slide">
+
+        <div class="slide-number">
+            SLIDE 06
+        </div>
+
+        <h2>🏗️ System Architecture</h2>
+
+        <div class="architecture">
+
+            <div class="architecture-box">
+                👤 Student
+            </div>
+
+            <div class="arrow">
+                ↓
+            </div>
+
+            <div class="architecture-box">
+                🌐 Flask Web Application
+            </div>
+
+            <div class="arrow">
+                ↓
+            </div>
+
+            <div class="architecture-box">
+                🧠 AI Priority Calculation
+            </div>
+
+            <div class="arrow">
+                ↓
+            </div>
+
+            <div class="architecture-box">
+                📅 Study Plan Generation
+            </div>
+
+            <div class="arrow">
+                ↓
+            </div>
+
+            <div class="architecture-box">
+                🗄️ MySQL Database
+            </div>
+
+        </div>
+
+    </div>
+
+
+    <!-- Slide 7 -->
+
+    <div class="slide">
+
+        <div class="slide-number">
+            SLIDE 07
+        </div>
+
+        <h2>🧩 System Modules</h2>
+
+        <ul>
+
+            <li>
+                🔐 Student Registration and Login
+            </li>
+
+            <li>
+                📊 Dashboard
+            </li>
+
+            <li>
+                📚 Subject Management
+            </li>
+
+            <li>
+                📝 Examination Management
+            </li>
+
+            <li>
+                🤖 AI Priority Calculation
+            </li>
+
+            <li>
+                📅 Study Plan Generation
+            </li>
+
+            <li>
+                📈 Progress Tracking
+            </li>
+
+            <li>
+                📚 Project Resources
+            </li>
+
+        </ul>
+
+    </div>
+
+
+    <!-- Slide 8 -->
+
+    <div class="slide">
+
+        <div class="slide-number">
+            SLIDE 08
+        </div>
+
+        <h2>🧠 AI Priority Calculation</h2>
+
+        <p>
+            The system calculates a priority score for each
+            subject using important academic factors.
+        </p>
+
+        <ul>
+
+            <li>
+                Student marks / performance
+            </li>
+
+            <li>
+                Upcoming examination date
+            </li>
+
+            <li>
+                Subject difficulty
+            </li>
+
+            <li>
+                Remaining topics
+            </li>
+
+        </ul>
+
+        <div class="highlight">
+
+            <strong>
+                Result
+            </strong>
+
+            Subjects receive a priority level such as
+            Low, Medium or High.
+
+        </div>
+
+    </div>
+
+
+    <!-- Slide 9 -->
+
+    <div class="slide">
+
+        <div class="slide-number">
+            SLIDE 09
+        </div>
+
+        <h2>📅 Study Plan Generation</h2>
+
+        <p>
+            The study planner uses subject priority scores
+            to distribute available study sessions.
+        </p>
+
+        <ul>
+
+            <li>
+                Identifies subject priorities.
+            </li>
+
+            <li>
+                Calculates remaining topics.
+            </li>
+
+            <li>
+                Distributes study sessions.
+            </li>
+
+            <li>
+                Creates a seven-day study schedule.
+            </li>
+
+            <li>
+                Assigns study dates and time slots.
+            </li>
+
+        </ul>
+
+    </div>
+
+
+    <!-- Slide 10 -->
+
+    <div class="slide">
+
+        <div class="slide-number">
+            SLIDE 10
+        </div>
+
+        <h2>🗄️ Database</h2>
+
+        <p>
+            MySQL is used to store and manage student
+            academic information.
+        </p>
+
+        <ul>
+
+            <li>
+                Students
+            </li>
+
+            <li>
+                Subjects
+            </li>
+
+            <li>
+                Exams
+            </li>
+
+            <li>
+                Study Plans
+            </li>
+
+            <li>
+                Progress
+            </li>
+
+        </ul>
+
+    </div>
+
+
+    <!-- Slide 11 -->
+
+    <div class="slide">
+
+        <div class="slide-number">
+            SLIDE 11
+        </div>
+
+        <h2>📈 Results and Benefits</h2>
+
+        <ul>
+
+            <li>
+                Personalized study schedules.
+            </li>
+
+            <li>
+                Better subject prioritization.
+            </li>
+
+            <li>
+                Easy academic progress tracking.
+            </li>
+
+            <li>
+                Reduced manual planning effort.
+            </li>
+
+            <li>
+                Improved study organization.
+            </li>
+
+        </ul>
+
+    </div>
+
+
+    <!-- Slide 12 -->
+
+    <div class="slide">
+
+        <div class="slide-number">
+            SLIDE 12
+        </div>
+
+        <h2>🚀 Future Scope</h2>
+
+        <ul>
+
+            <li>
+                Mobile application support.
+            </li>
+
+            <li>
+                Advanced machine learning models.
+            </li>
+
+            <li>
+                AI-based performance prediction.
+            </li>
+
+            <li>
+                Automatic study reminders.
+            </li>
+
+            <li>
+                Personalized learning recommendations.
+            </li>
+
+            <li>
+                Integration with online learning resources.
+            </li>
+
+        </ul>
+
+    </div>
+
+
+    <!-- Slide 13 -->
+
+    <div class="slide conclusion">
+
+        <div class="slide-number">
+            SLIDE 13
+        </div>
+
+        <h2>✅ Conclusion</h2>
+
+        <p>
+            The AI Smart Study Planner provides an intelligent
+            and organized approach to academic planning.
+        </p>
+
+        <p>
+            By combining Flask, MySQL, data processing and
+            AI-based priority calculation, the system helps
+            students manage their study time effectively.
+        </p>
+
+        <div class="highlight">
+
+            <strong>
+                Thank You
+            </strong>
+
+            Questions & Answers
+
+        </div>
+
+    </div>
+
+
+</div>
+
+{% endblock %}

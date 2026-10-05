@@ -1,0 +1,824 @@
+{% extends "base.html" %}
+
+{% block title %}Project Documentation{% endblock %}
+
+{% block content %}
+
+<style>
+
+.documentation-container {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 35px 20px 50px;
+}
+
+.documentation-header {
+    text-align: center;
+    margin-bottom: 40px;
+}
+
+.documentation-header h1 {
+    font-size: 38px;
+    color: #172033;
+    margin-bottom: 10px;
+}
+
+.documentation-header p {
+    color: #64748b;
+    font-size: 16px;
+}
+
+
+/* DOCUMENTATION CARD */
+
+.documentation-section {
+    background: white;
+    padding: 30px;
+    margin-bottom: 25px;
+    border-radius: 18px;
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.07);
+}
+
+.documentation-section h2 {
+    color: #172033;
+    font-size: 25px;
+    margin-bottom: 15px;
+}
+
+.documentation-section h3 {
+    color: #4f46e5;
+    margin-top: 20px;
+    margin-bottom: 8px;
+}
+
+.documentation-section p {
+    color: #475569;
+    line-height: 1.8;
+    font-size: 15px;
+}
+
+.documentation-section ul {
+    color: #475569;
+    line-height: 1.9;
+    padding-left: 25px;
+}
+
+.documentation-section li {
+    margin-bottom: 6px;
+}
+
+
+/* TECHNOLOGY GRID */
+
+.technology-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 15px;
+    margin-top: 20px;
+}
+
+.technology-card {
+    background: #f8fafc;
+    padding: 18px;
+    border-radius: 12px;
+    text-align: center;
+}
+
+.technology-card strong {
+    display: block;
+    color: #172033;
+    margin-bottom: 5px;
+}
+
+.technology-card span {
+    color: #64748b;
+    font-size: 14px;
+}
+
+
+/* MODULE GRID */
+
+.module-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 15px;
+    margin-top: 20px;
+}
+
+.module-card {
+    background: #f8fafc;
+    padding: 20px;
+    border-radius: 12px;
+}
+
+.module-card h3 {
+    margin-top: 0;
+}
+
+.module-card p {
+    margin-bottom: 0;
+}
+
+
+/* ARCHITECTURE */
+
+.architecture-box {
+    background: #f8fafc;
+    padding: 25px;
+    border-radius: 15px;
+    text-align: center;
+    margin-top: 20px;
+}
+
+.architecture-step {
+    display: inline-block;
+    background: white;
+    padding: 15px 20px;
+    margin: 7px;
+    border-radius: 10px;
+    font-weight: 700;
+    color: #172033;
+    box-shadow: 0 3px 10px rgba(0,0,0,0.06);
+}
+
+.arrow {
+    font-size: 22px;
+    color: #4f46e5;
+}
+
+
+/* AI FORMULA */
+
+.ai-box {
+    background: #eef2ff;
+    border-left: 5px solid #4f46e5;
+    padding: 20px;
+    border-radius: 10px;
+    margin-top: 15px;
+}
+
+.ai-box strong {
+    color: #172033;
+}
+
+.ai-box p {
+    margin-bottom: 0;
+}
+
+
+/* CONCLUSION */
+
+.conclusion-box {
+    background: #172033;
+    color: white;
+}
+
+.conclusion-box h2 {
+    color: white;
+}
+
+.conclusion-box p {
+    color: #cbd5e1;
+}
+
+
+/* RESPONSIVE */
+
+@media (max-width: 800px) {
+
+    .technology-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .module-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .documentation-header h1 {
+        font-size: 30px;
+    }
+
+    .documentation-section {
+        padding: 22px;
+    }
+
+}
+
+</style>
+
+
+<div class="documentation-container">
+
+
+    <!-- HEADER -->
+
+    <div class="documentation-header">
+
+        <h1>📄 Project Documentation</h1>
+
+        <p>
+            AI Smart Study Planner
+        </p>
+
+    </div>
+
+
+    <!-- 1. ABSTRACT -->
+
+    <div class="documentation-section">
+
+        <h2>1. Abstract</h2>
+
+        <p>
+            The <strong>AI Smart Study Planner</strong> is a web-based
+            application designed to help students organize their studies
+            according to their academic performance, subject difficulty,
+            completed topics and upcoming examinations.
+        </p>
+
+        <p>
+            The system uses AI-based priority calculation to identify
+            subjects that require greater attention. Based on the calculated
+            priority, the system generates a personalized study plan for
+            the student.
+        </p>
+
+        <p>
+            The application also provides subject management, examination
+            management, progress tracking and study-session management
+            through an interactive web interface.
+        </p>
+
+    </div>
+
+
+    <!-- 2. INTRODUCTION -->
+
+    <div class="documentation-section">
+
+        <h2>2. Introduction</h2>
+
+        <p>
+            Students often have multiple subjects, different levels of
+            difficulty and examinations scheduled on different dates.
+            Managing all these factors manually can make it difficult to
+            decide which subject should be studied first.
+        </p>
+
+        <p>
+            The AI Smart Study Planner solves this problem by analyzing
+            student information and generating a priority score for each
+            subject. The system then uses these priorities to create a
+            structured study plan.
+        </p>
+
+    </div>
+
+
+    <!-- 3. PROBLEM STATEMENT -->
+
+    <div class="documentation-section">
+
+        <h2>3. Problem Statement</h2>
+
+        <p>
+            Students may struggle to create an effective study schedule
+            because of multiple subjects, different subject difficulties,
+            varying academic performance and approaching examinations.
+        </p>
+
+        <p>
+            A system is therefore required to analyze these factors and
+            generate a personalized study plan that helps students focus
+            on important subjects.
+        </p>
+
+    </div>
+
+
+    <!-- 4. OBJECTIVES -->
+
+    <div class="documentation-section">
+
+        <h2>4. Objectives</h2>
+
+        <ul>
+
+            <li>
+                To develop a web-based smart study planning system.
+            </li>
+
+            <li>
+                To store student and academic information using MySQL.
+            </li>
+
+            <li>
+                To calculate subject priority using AI-based logic.
+            </li>
+
+            <li>
+                To consider examination dates while planning study sessions.
+            </li>
+
+            <li>
+                To generate personalized study plans.
+            </li>
+
+            <li>
+                To track completed topics and study progress.
+            </li>
+
+            <li>
+                To provide students with a simple and interactive interface.
+            </li>
+
+        </ul>
+
+    </div>
+
+
+    <!-- 5. EXISTING SYSTEM -->
+
+    <div class="documentation-section">
+
+        <h2>5. Existing System</h2>
+
+        <p>
+            In a traditional study planning approach, students generally
+            prepare their study schedules manually. The schedule may not
+            automatically consider subject difficulty, examination dates,
+            marks and remaining topics.
+        </p>
+
+        <h3>Limitations</h3>
+
+        <ul>
+
+            <li>Manual study-plan preparation.</li>
+
+            <li>Difficult to manage multiple subjects.</li>
+
+            <li>No automatic priority calculation.</li>
+
+            <li>Limited progress tracking.</li>
+
+            <li>Study plans may not adapt to academic information.</li>
+
+        </ul>
+
+    </div>
+
+
+    <!-- 6. PROPOSED SYSTEM -->
+
+    <div class="documentation-section">
+
+        <h2>6. Proposed System</h2>
+
+        <p>
+            The proposed AI Smart Study Planner provides an automated
+            approach to study planning. The system collects subject,
+            examination and progress information and calculates a priority
+            score for each subject.
+        </p>
+
+        <p>
+            The generated priority values are then used by the study-plan
+            generator to distribute study sessions according to subject
+            importance.
+        </p>
+
+    </div>
+
+
+    <!-- 7. TECHNOLOGIES -->
+
+    <div class="documentation-section">
+
+        <h2>7. Technologies Used</h2>
+
+        <div class="technology-grid">
+
+            <div class="technology-card">
+                <strong>🐍 Python</strong>
+                <span>Application programming</span>
+            </div>
+
+            <div class="technology-card">
+                <strong>🌐 Flask</strong>
+                <span>Web application framework</span>
+            </div>
+
+            <div class="technology-card">
+                <strong>🗄️ MySQL</strong>
+                <span>Database management</span>
+            </div>
+
+            <div class="technology-card">
+                <strong>🤖 Scikit-learn</strong>
+                <span>Machine learning support</span>
+            </div>
+
+            <div class="technology-card">
+                <strong>📊 Pandas</strong>
+                <span>Data processing</span>
+            </div>
+
+            <div class="technology-card">
+                <strong>🔢 NumPy</strong>
+                <span>Numerical processing</span>
+            </div>
+
+            <div class="technology-card">
+                <strong>📈 Matplotlib</strong>
+                <span>Data visualization</span>
+            </div>
+
+            <div class="technology-card">
+                <strong>🎨 HTML & CSS</strong>
+                <span>User interface</span>
+            </div>
+
+            <div class="technology-card">
+                <strong>⚡ JavaScript</strong>
+                <span>Client-side interaction</span>
+            </div>
+
+        </div>
+
+    </div>
+
+
+    <!-- 8. SYSTEM ARCHITECTURE -->
+
+    <div class="documentation-section">
+
+        <h2>8. System Architecture</h2>
+
+        <p>
+            The system follows a web application architecture where the
+            frontend communicates with the Flask backend. The backend
+            processes user requests, communicates with the MySQL database
+            and performs AI-based priority calculations.
+        </p>
+
+        <div class="architecture-box">
+
+            <div class="architecture-step">
+                👤 Student
+            </div>
+
+            <span class="arrow">→</span>
+
+            <div class="architecture-step">
+                🎨 Web Interface
+            </div>
+
+            <span class="arrow">→</span>
+
+            <div class="architecture-step">
+                🌐 Flask
+            </div>
+
+            <br>
+
+            <div class="architecture-step">
+                🧠 AI Priority
+            </div>
+
+            <span class="arrow">→</span>
+
+            <div class="architecture-step">
+                🤖 Study Planner
+            </div>
+
+            <span class="arrow">→</span>
+
+            <div class="architecture-step">
+                🗄️ MySQL
+            </div>
+
+        </div>
+
+    </div>
+
+
+    <!-- 9. MODULES -->
+
+    <div class="documentation-section">
+
+        <h2>9. System Modules</h2>
+
+        <div class="module-grid">
+
+            <div class="module-card">
+
+                <h3>🔐 User Authentication</h3>
+
+                <p>
+                    Provides student registration, login and logout
+                    functionality.
+                </p>
+
+            </div>
+
+
+            <div class="module-card">
+
+                <h3>📊 Dashboard</h3>
+
+                <p>
+                    Displays important academic information, study
+                    sessions and overall learning progress.
+                </p>
+
+            </div>
+
+
+            <div class="module-card">
+
+                <h3>📚 Subject Management</h3>
+
+                <p>
+                    Allows students to add subjects, marks, difficulty
+                    levels and topic information.
+                </p>
+
+            </div>
+
+
+            <div class="module-card">
+
+                <h3>📝 Examination Management</h3>
+
+                <p>
+                    Stores upcoming examination dates associated with
+                    student subjects.
+                </p>
+
+            </div>
+
+
+            <div class="module-card">
+
+                <h3>🧠 AI Priority Calculation</h3>
+
+                <p>
+                    Calculates subject priority using academic and
+                    examination-related information.
+                </p>
+
+            </div>
+
+
+            <div class="module-card">
+
+                <h3>🤖 Study Plan Generation</h3>
+
+                <p>
+                    Generates study sessions based on subject priority
+                    and available study hours.
+                </p>
+
+            </div>
+
+
+            <div class="module-card">
+
+                <h3>📈 Progress Tracking</h3>
+
+                <p>
+                    Tracks completed topics, study hours and learning
+                    progress.
+                </p>
+
+            </div>
+
+
+            <div class="module-card">
+
+                <h3>📚 Project Resources</h3>
+
+                <p>
+                    Provides access to project documentation, presentation
+                    and viva preparation material.
+                </p>
+
+            </div>
+
+        </div>
+
+    </div>
+
+
+    <!-- 10. AI COMPONENT -->
+
+    <div class="documentation-section">
+
+        <h2>10. AI Priority Calculation</h2>
+
+        <p>
+            The AI component calculates a priority score for every subject.
+            The priority calculation considers factors such as examination
+            urgency, student performance, subject difficulty and remaining
+            topics.
+        </p>
+
+        <div class="ai-box">
+
+            <strong>Priority Factors</strong>
+
+            <p>
+                Examination urgency + Performance + Difficulty +
+                Remaining topics
+            </p>
+
+        </div>
+
+        <p>
+            Subjects with higher priority receive greater importance during
+            study-plan generation.
+        </p>
+
+    </div>
+
+
+    <!-- 11. STUDY PLAN -->
+
+    <div class="documentation-section">
+
+        <h2>11. Study Plan Generation</h2>
+
+        <p>
+            The study planner receives the subjects and their calculated
+            priority scores. Higher-priority subjects are assigned more
+            study sessions.
+        </p>
+
+        <p>
+            The planner generates study sessions for a seven-day period
+            according to the available study hours.
+        </p>
+
+        <h3>Study Plan Process</h3>
+
+        <ul>
+
+            <li>Collect student subjects.</li>
+
+            <li>Calculate subject priority.</li>
+
+            <li>Identify remaining topics.</li>
+
+            <li>Distribute study sessions.</li>
+
+            <li>Assign study dates and times.</li>
+
+            <li>Generate topics for each session.</li>
+
+            <li>Store the generated plan in MySQL.</li>
+
+        </ul>
+
+    </div>
+
+
+    <!-- 12. DATABASE -->
+
+    <div class="documentation-section">
+
+        <h2>12. Database Design</h2>
+
+        <p>
+            MySQL is used to store the application's student and academic
+            information.
+        </p>
+
+        <h3>Main Tables</h3>
+
+        <ul>
+
+            <li>
+                <strong>students</strong> — stores student account details.
+            </li>
+
+            <li>
+                <strong>subjects</strong> — stores subject marks,
+                difficulty and topic progress.
+            </li>
+
+            <li>
+                <strong>exams</strong> — stores examination dates.
+            </li>
+
+            <li>
+                <strong>study_plans</strong> — stores generated study
+                sessions.
+            </li>
+
+            <li>
+                <strong>progress</strong> — stores study and learning
+                progress.
+            </li>
+
+        </ul>
+
+    </div>
+
+
+    <!-- 13. ADVANTAGES -->
+
+    <div class="documentation-section">
+
+        <h2>13. Advantages</h2>
+
+        <ul>
+
+            <li>Reduces manual study planning.</li>
+
+            <li>Helps prioritize important subjects.</li>
+
+            <li>Considers upcoming examinations.</li>
+
+            <li>Tracks academic progress.</li>
+
+            <li>Provides personalized study sessions.</li>
+
+            <li>Provides an easy-to-use web interface.</li>
+
+            <li>Stores academic information in a centralized database.</li>
+
+        </ul>
+
+    </div>
+
+
+    <!-- 14. FUTURE SCOPE -->
+
+    <div class="documentation-section">
+
+        <h2>14. Future Scope</h2>
+
+        <ul>
+
+            <li>
+                Adaptive AI that learns from student study behaviour.
+            </li>
+
+            <li>
+                Automatic daily plan adjustment based on completed
+                sessions.
+            </li>
+
+            <li>
+                Advanced performance prediction.
+            </li>
+
+            <li>
+                AI-generated study recommendations.
+            </li>
+
+            <li>
+                Notifications and study reminders.
+            </li>
+
+            <li>
+                Mobile application support.
+            </li>
+
+            <li>
+                Integration with online learning resources.
+            </li>
+
+        </ul>
+
+    </div>
+
+
+    <!-- 15. CONCLUSION -->
+
+    <div class="documentation-section conclusion-box">
+
+        <h2>15. Conclusion</h2>
+
+        <p>
+            The AI Smart Study Planner provides a structured approach to
+            academic study planning. By combining Flask, MySQL and
+            AI-based priority calculation, the system can analyze
+            important academic factors and generate personalized study
+            schedules.
+        </p>
+
+        <p>
+            The system also provides progress tracking and centralized
+            management of subjects, examinations and study sessions,
+            making it a useful platform for students to organize their
+            learning activities.
+        </p>
+
+    </div>
+
+
+</div>
+
+{% endblock %}

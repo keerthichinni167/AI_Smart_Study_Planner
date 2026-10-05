@@ -1,0 +1,763 @@
+{% extends "base.html" %}
+
+{% block title %}Viva Questions{% endblock %}
+
+{% block content %}
+
+<style>
+
+    .viva-container {
+        max-width: 1100px;
+        margin: 0 auto;
+        padding: 30px 20px;
+    }
+
+    .viva-header {
+        text-align: center;
+        margin-bottom: 40px;
+    }
+
+    .viva-header h1 {
+        font-size: 38px;
+        margin-bottom: 10px;
+    }
+
+    .viva-header p {
+        color: #64748b;
+        font-size: 17px;
+    }
+
+    .category {
+        margin-bottom: 35px;
+    }
+
+    .category-title {
+        font-size: 26px;
+        margin-bottom: 18px;
+        padding-bottom: 10px;
+        border-bottom: 2px solid #e2e8f0;
+    }
+
+    .question-card {
+        background: white;
+        border-radius: 15px;
+        padding: 24px;
+        margin-bottom: 15px;
+        box-shadow: 0 6px 20px rgba(0, 0, 0, 0.07);
+    }
+
+    .question {
+        font-size: 18px;
+        font-weight: 700;
+        color: #1e293b;
+        margin-bottom: 12px;
+    }
+
+    .answer {
+        color: #475569;
+        line-height: 1.7;
+        font-size: 16px;
+    }
+
+    .answer strong {
+        color: #2563eb;
+    }
+
+    .project-box {
+        background: #eff6ff;
+        border-left: 5px solid #2563eb;
+        border-radius: 12px;
+        padding: 22px;
+        margin-bottom: 35px;
+    }
+
+    .project-box h2 {
+        margin-bottom: 10px;
+    }
+
+    .project-box p {
+        color: #475569;
+        line-height: 1.7;
+    }
+
+    .tips {
+        background: #1e293b;
+        color: white;
+        border-radius: 18px;
+        padding: 30px;
+        margin-top: 40px;
+    }
+
+    .tips h2 {
+        margin-bottom: 18px;
+    }
+
+    .tips ul {
+        line-height: 2;
+        color: #e2e8f0;
+    }
+
+    @media (max-width: 700px) {
+
+        .viva-header h1 {
+            font-size: 30px;
+        }
+
+        .question-card {
+            padding: 20px;
+        }
+
+    }
+
+</style>
+
+
+<div class="viva-container">
+
+
+    <!-- Header -->
+
+    <div class="viva-header">
+
+        <h1>🎤 Viva Questions</h1>
+
+        <p>
+            Important questions and answers for the
+            AI Smart Study Planner project.
+        </p>
+
+    </div>
+
+
+    <!-- Project Introduction -->
+
+    <div class="project-box">
+
+        <h2>🤖 About the Project</h2>
+
+        <p>
+            The AI Smart Study Planner is a web-based application
+            developed using Python and Flask. It helps students
+            manage subjects, exams, study schedules and academic
+            progress. The system calculates subject priority and
+            generates a personalized seven-day study plan.
+        </p>
+
+    </div>
+
+
+    <!-- Python and Flask -->
+
+    <div class="category">
+
+        <h2 class="category-title">
+            🐍 Python & Flask
+        </h2>
+
+
+        <div class="question-card">
+
+            <div class="question">
+                1. What is Python?
+            </div>
+
+            <div class="answer">
+                <strong>Answer:</strong>
+                Python is a high-level, interpreted programming
+                language known for its simple syntax and wide
+                range of libraries.
+            </div>
+
+        </div>
+
+
+        <div class="question-card">
+
+            <div class="question">
+                2. What is Flask?
+            </div>
+
+            <div class="answer">
+                <strong>Answer:</strong>
+                Flask is a lightweight Python web framework used
+                to build web applications and APIs.
+            </div>
+
+        </div>
+
+
+        <div class="question-card">
+
+            <div class="question">
+                3. Why did you use Flask in this project?
+            </div>
+
+            <div class="answer">
+                <strong>Answer:</strong>
+                Flask is used to connect the frontend with the
+                Python backend, handle routes, process requests
+                and communicate with the MySQL database.
+            </div>
+
+        </div>
+
+
+        <div class="question-card">
+
+            <div class="question">
+                4. What is a Flask route?
+            </div>
+
+            <div class="answer">
+                <strong>Answer:</strong>
+                A route maps a URL to a Python function.
+                For example, the <strong>/resources</strong>
+                route displays the Resources page.
+            </div>
+
+        </div>
+
+
+        <div class="question-card">
+
+            <div class="question">
+                5. What is Jinja2?
+            </div>
+
+            <div class="answer">
+                <strong>Answer:</strong>
+                Jinja2 is a template engine used by Flask to
+                generate dynamic HTML pages using Python data.
+            </div>
+
+        </div>
+
+    </div>
+
+
+    <!-- MySQL -->
+
+    <div class="category">
+
+        <h2 class="category-title">
+            🗄️ MySQL Database
+        </h2>
+
+
+        <div class="question-card">
+
+            <div class="question">
+                6. Why did you use MySQL?
+            </div>
+
+            <div class="answer">
+                <strong>Answer:</strong>
+                MySQL is used to store student information,
+                subjects, exams, study plans and progress data
+                in a structured relational database.
+            </div>
+
+        </div>
+
+
+        <div class="question-card">
+
+            <div class="question">
+                7. What tables are used in your project?
+            </div>
+
+            <div class="answer">
+                <strong>Answer:</strong>
+                The project uses five main tables:
+                students, subjects, exams, study_plans and progress.
+            </div>
+
+        </div>
+
+
+        <div class="question-card">
+
+            <div class="question">
+                8. What is a primary key?
+            </div>
+
+            <div class="answer">
+                <strong>Answer:</strong>
+                A primary key uniquely identifies each record
+                in a database table.
+            </div>
+
+        </div>
+
+
+        <div class="question-card">
+
+            <div class="question">
+                9. What is a foreign key?
+            </div>
+
+            <div class="answer">
+                <strong>Answer:</strong>
+                A foreign key connects one table with another
+                table using a related key.
+            </div>
+
+        </div>
+
+
+        <div class="question-card">
+
+            <div class="question">
+                10. How does Flask connect to MySQL?
+            </div>
+
+            <div class="answer">
+                <strong>Answer:</strong>
+                The project uses the
+                <strong>mysql.connector</strong>
+                Python library to establish a connection between
+                Flask and MySQL.
+            </div>
+
+        </div>
+
+    </div>
+
+
+    <!-- Frontend -->
+
+    <div class="category">
+
+        <h2 class="category-title">
+            🌐 HTML, CSS & JavaScript
+        </h2>
+
+
+        <div class="question-card">
+
+            <div class="question">
+                11. What is HTML?
+            </div>
+
+            <div class="answer">
+                <strong>Answer:</strong>
+                HTML is used to create the structure and content
+                of web pages.
+            </div>
+
+        </div>
+
+
+        <div class="question-card">
+
+            <div class="question">
+                12. What is CSS?
+            </div>
+
+            <div class="answer">
+                <strong>Answer:</strong>
+                CSS is used to style web pages, including
+                colors, layouts, spacing, fonts and responsiveness.
+            </div>
+
+        </div>
+
+
+        <div class="question-card">
+
+            <div class="question">
+                13. What is JavaScript?
+            </div>
+
+            <div class="answer">
+                <strong>Answer:</strong>
+                JavaScript is used to add dynamic and interactive
+                behavior to web pages.
+            </div>
+
+        </div>
+
+
+        <div class="question-card">
+
+            <div class="question">
+                14. What is a template in Flask?
+            </div>
+
+            <div class="answer">
+                <strong>Answer:</strong>
+                A template is an HTML file that Flask renders
+                using Jinja2 to display dynamic information.
+            </div>
+
+        </div>
+
+    </div>
+
+
+    <!-- AI and Machine Learning -->
+
+    <div class="category">
+
+        <h2 class="category-title">
+            🧠 AI & Machine Learning
+        </h2>
+
+
+        <div class="question-card">
+
+            <div class="question">
+                15. What is Artificial Intelligence?
+            </div>
+
+            <div class="answer">
+                <strong>Answer:</strong>
+                Artificial Intelligence is the field of creating
+                systems that can perform tasks requiring
+                intelligent decision-making.
+            </div>
+
+        </div>
+
+
+        <div class="question-card">
+
+            <div class="question">
+                16. Where is AI used in your project?
+            </div>
+
+            <div class="answer">
+                <strong>Answer:</strong>
+                AI-based logic is used to calculate subject
+                priority and generate an intelligent study plan.
+            </div>
+
+        </div>
+
+
+        <div class="question-card">
+
+            <div class="question">
+                17. What factors are considered for priority?
+            </div>
+
+            <div class="answer">
+                <strong>Answer:</strong>
+                The priority calculation considers exam timing,
+                student performance, subject difficulty and
+                remaining topics.
+            </div>
+
+        </div>
+
+
+        <div class="question-card">
+
+            <div class="question">
+                18. What is Scikit-learn?
+            </div>
+
+            <div class="answer">
+                <strong>Answer:</strong>
+                Scikit-learn is a Python machine learning library
+                that provides tools for data processing,
+                modeling and analysis.
+            </div>
+
+        </div>
+
+    </div>
+
+
+    <!-- Pandas and NumPy -->
+
+    <div class="category">
+
+        <h2 class="category-title">
+            📊 Pandas & NumPy
+        </h2>
+
+
+        <div class="question-card">
+
+            <div class="question">
+                19. What is Pandas?
+            </div>
+
+            <div class="answer">
+                <strong>Answer:</strong>
+                Pandas is a Python library used for data
+                manipulation and analysis.
+            </div>
+
+        </div>
+
+
+        <div class="question-card">
+
+            <div class="question">
+                20. What is NumPy?
+            </div>
+
+            <div class="answer">
+                <strong>Answer:</strong>
+                NumPy is a Python library used for numerical
+                operations and array-based data processing.
+            </div>
+
+        </div>
+
+
+        <div class="question-card">
+
+            <div class="question">
+                21. Why are data processing libraries useful?
+            </div>
+
+            <div class="answer">
+                <strong>Answer:</strong>
+                They help process academic data efficiently and
+                support calculations used by the AI component.
+            </div>
+
+        </div>
+
+    </div>
+
+
+    <!-- Project Specific -->
+
+    <div class="category">
+
+        <h2 class="category-title">
+            🤖 Project-Specific Questions
+        </h2>
+
+
+        <div class="question-card">
+
+            <div class="question">
+                22. What is the main purpose of your project?
+            </div>
+
+            <div class="answer">
+                <strong>Answer:</strong>
+                The main purpose is to help students organize
+                their studies and generate personalized study
+                schedules based on academic priorities.
+            </div>
+
+        </div>
+
+
+        <div class="question-card">
+
+            <div class="question">
+                23. How does the study planner work?
+            </div>
+
+            <div class="answer">
+                <strong>Answer:</strong>
+                It calculates subject priority, identifies
+                remaining topics and distributes study sessions
+                across a seven-day schedule.
+            </div>
+
+        </div>
+
+
+        <div class="question-card">
+
+            <div class="question">
+                24. Why are exam dates important?
+            </div>
+
+            <div class="answer">
+                <strong>Answer:</strong>
+                Exam dates help determine how urgently a subject
+                needs to be studied.
+            </div>
+
+        </div>
+
+
+        <div class="question-card">
+
+            <div class="question">
+                25. Why is subject difficulty considered?
+            </div>
+
+            <div class="answer">
+                <strong>Answer:</strong>
+                Difficult subjects may require more study attention,
+                so difficulty contributes to the priority calculation.
+            </div>
+
+        </div>
+
+
+        <div class="question-card">
+
+            <div class="question">
+                26. How does the system track progress?
+            </div>
+
+            <div class="answer">
+                <strong>Answer:</strong>
+                The system stores study hours, completed topics
+                and progress percentage in the progress table.
+            </div>
+
+        </div>
+
+
+        <div class="question-card">
+
+            <div class="question">
+                27. What happens when a study session is completed?
+            </div>
+
+            <div class="answer">
+                <strong>Answer:</strong>
+                The study plan status is updated and the student's
+                completed topics and progress information are
+                updated in the database.
+            </div>
+
+        </div>
+
+
+        <div class="question-card">
+
+            <div class="question">
+                28. How many days does the generated plan cover?
+            </div>
+
+            <div class="answer">
+                <strong>Answer:</strong>
+                The current planner generates a seven-day study plan.
+            </div>
+
+        </div>
+
+
+        <div class="question-card">
+
+            <div class="question">
+                29. What happens if a subject has no remaining topics?
+            </div>
+
+            <div class="answer">
+                <strong>Answer:</strong>
+                The planner assigns revision and practice instead
+                of remaining-topic study.
+            </div>
+
+        </div>
+
+
+        <div class="question-card">
+
+            <div class="question">
+                30. What are the advantages of your project?
+            </div>
+
+            <div class="answer">
+                <strong>Answer:</strong>
+                It provides personalized planning, subject
+                prioritization, progress tracking and reduces
+                manual study-planning effort.
+            </div>
+
+        </div>
+
+    </div>
+
+
+    <!-- Future Scope -->
+
+    <div class="category">
+
+        <h2 class="category-title">
+            🚀 Future Scope
+        </h2>
+
+
+        <div class="question-card">
+
+            <div class="question">
+                31. What improvements can be added in future?
+            </div>
+
+            <div class="answer">
+                <strong>Answer:</strong>
+                Future versions can include mobile applications,
+                advanced machine learning models, notifications,
+                performance prediction and integration with
+                online learning resources.
+            </div>
+
+        </div>
+
+
+        <div class="question-card">
+
+            <div class="question">
+                32. Can this project be converted into a mobile app?
+            </div>
+
+            <div class="answer">
+                <strong>Answer:</strong>
+                Yes. The existing backend can be extended with
+                APIs and connected to a mobile application.
+            </div>
+
+        </div>
+
+    </div>
+
+
+    <!-- Viva Tips -->
+
+    <div class="tips">
+
+        <h2>💡 Viva Preparation Tips</h2>
+
+        <ul>
+
+            <li>
+                Understand the purpose of every module.
+            </li>
+
+            <li>
+                Be able to explain the project architecture.
+            </li>
+
+            <li>
+                Know why Flask and MySQL were selected.
+            </li>
+
+            <li>
+                Explain how the AI priority score is calculated.
+            </li>
+
+            <li>
+                Explain how the seven-day study plan is generated.
+            </li>
+
+            <li>
+                Know the five database tables used in the project.
+            </li>
+
+            <li>
+                Be prepared to explain the project demo step-by-step.
+            </li>
+
+        </ul>
+
+    </div>
+
+
+</div>
+
+{% endblock %}
